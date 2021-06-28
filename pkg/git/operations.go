@@ -465,7 +465,7 @@ func execGitCmd(ctx context.Context, args []string, config gitCmdConfig) error {
 	}
 
 	if ctx.Err() == context.DeadlineExceeded {
-		return errors.Wrap(ctx.Err(), fmt.Sprintf("running git command: %s %v", "git", args))
+		return errors.Wrap(ctx.Err(), fmt.Sprintf("FSAN running git command: %s %v", "git", args))
 	} else if ctx.Err() == context.Canceled {
 		return errors.Wrap(ctx.Err(), fmt.Sprintf("context was unexpectedly cancelled when running git command: %s %v", "git", args))
 	}
